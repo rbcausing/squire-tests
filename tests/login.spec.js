@@ -1,11 +1,13 @@
-import { test, expect } from '@playwright/test';
+const { test, expect } = require('@playwright/test');
 
-test('test', async ({ page }) => {
+test('SQUIRE Login Test', async ({ page }) => {
+  // Navigate to the login page
   await page.goto('https://app.getsquire.com/login');
-  await page.getByRole('textbox', { name: 'Username or Email' }).click();
-  await page.getByRole('textbox', { name: 'Username or Email' }).fill('tempweb.willman@gmail.com');
-  await page.getByRole('textbox', { name: 'Username or Email' }).press('Tab');
-  await page.getByRole('textbox', { name: 'Password' }).fill('$123squireTest');
+
+  await page.getByPlaceholder('Username or Email').fill('tempweb.willman@gmail.com');
+  await page.getByPlaceholder('Password').fill('$123squireTest');
   await page.getByRole('button', { name: 'Login' }).click();
-  await page.locator('#root').getByText('Appointments').click();
+
+  // Assert that the header "Appointments" is visible
+  await expect(page.locator('div[data-automation-id="text:header"]')).toBeVisible();
 });

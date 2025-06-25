@@ -4,7 +4,7 @@ const config = {
   timeout: 30000,
   use: {
     baseURL: 'https://app.getsquire.com/', // Replace with SQUIRE's login URL
-    headless: true, // Run tests in headless mode
+    headless: false, // Run tests in headless mode
     screenshot: 'only-on-failure', // Capture screenshots on test failure
     video: 'retain-on-failure', // Record videos on test failure
   },
