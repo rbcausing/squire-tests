@@ -1,3 +1,8 @@
+const { requireEnv } = require('./env');
+
+requireEnv('SQUIRE_USER');
+requireEnv('SQUIRE_PASS');
+
 /** @type {import('@playwright/test').PlaywrightTestConfig} */
 const config = {
   testDir: './tests',
